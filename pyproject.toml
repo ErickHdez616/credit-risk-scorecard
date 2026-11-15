@@ -1,0 +1,32 @@
+[project]
+name = "credit-risk-scorecard"
+version = "0.1.0"
+description = "Modelo de probabilidad de impago explicable: scorecard WoE vs LightGBM, SHAP y cartas de motivos con Claude"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2",
+  "numpy>=1.26",
+  "scikit-learn>=1.5",
+  "lightgbm>=4.3",
+  "shap>=0.45",
+  "evidently>=0.4",
+  "mlflow>=2.14",
+  "typer>=0.12",
+  "pydantic>=2.7",
+  "anthropic",
+  "python-dotenv>=1.0",
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5", "jupyter"]
+
+[project.scripts]
+score = "scorecard.cli:app"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
